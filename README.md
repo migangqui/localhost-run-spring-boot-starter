@@ -1,10 +1,10 @@
-# localhost Run Spring Boot Starter
+# localhost.run Spring Boot Starter
 
 Spring Boot Starter to share your localhost Spring Application with an external url.
 
 ## What is localhost.run?
 
-From the official website, Serveo is an SSH server just for remote port forwarding. When a user connects to Serveo, they get a public URL that anybody can use to connect to their localhost server.
+localhost.run is an SSH server just for remote port forwarding. When a user connects to localhost.run, they get a public URL that anybody can use to connect to their localhost server.
 
 ## How works this starter?
 
