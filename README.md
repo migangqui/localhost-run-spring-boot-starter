@@ -12,20 +12,20 @@ When you add this dependency to your pom.xml and configure it, you'll automatica
 
  ## Dependency
  
-Actual version is 1.0
+Actual version is 2.0
  
  * Maven:
  ```xml
 <dependency>
     <groupId>com.github.migangqui</groupId>
     <artifactId>localhost-run-spring-boot-starter</artifactId>
-    <version>1.0</version>
+    <version>2.0</version>
 </dependency>
 ```
 
 * Gradle:
- ```xml
-compile('com.github.migangqui:localhost-run-spring-boot-starter:1.0')
+ ```groovy
+compile('com.github.migangqui:localhost-run-spring-boot-starter:2.0')
 ```
 
 https://mvnrepository.com/artifact/com.github.migangqui/localhost-run-spring-boot-starter
