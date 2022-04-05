@@ -3,28 +3,38 @@ name: Java with Nexus Repository
 on:
   push:
     branches: [ master ]
+    paths-ignore:
+      - '**.md'
 
 jobs:
-  build:
-
+  publish:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v1
-      - name: Set up JDK 17
+      - uses: actions/checkout@v2
+      - name: Set up Java for publishing to Maven Central Repository
         uses: actions/setup-java@v1
         with:
           java-version: 17
-      - name: Build with Maven
-        run: mvn package --file pom.xml
-      - name: Nexus Repo Publish
-        uses: sonatype-nexus-community/nexus-repo-github-action@master
+          server-id: ossrh
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+          gpg-private-key: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+      - name: build artifact
+        run: mvn clean package
+      - name: Create release
+        uses: ncipollo/release-action@v1
         with:
-          serverUrl: https://oss.sonatype.org/content/groups/public/
-          username: migangqui
-          password: ${{ secrets.nexus_password }}
-          format: maven2
-          repository: maven-releases
-          coordinates: groupId=com.github.migangqui artifactId=localhost-run-spring-boot-starter version=2.0
-          assets: extension=jar
-          filename: ./target/localhost-run-spring-boot-starter-2.0.jar
+          allowUpdates: true
+          artifacts: "${{ github.workspace }}/target/*.jar"
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish to the Maven Central Repository
+        run: |
+          mvn -Prelease \
+            --no-transfer-progress \
+            --batch-mode \
+            deploy
+        env:
+          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
