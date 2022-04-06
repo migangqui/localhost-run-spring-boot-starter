@@ -1,5 +1,8 @@
 # localhost.run Spring Boot Starter
 
+![GitHub last commit](https://img.shields.io/github/last-commit/migangqui/localhost-run-spring-boot-starter?style=for-the-badge)
+![Maven Central](https://img.shields.io/maven-central/v/com.github.migangqui/localhost-run-spring-boot-starter?style=for-the-badge)
+
 Spring Boot Starter to share your localhost Spring Application with an external url.
 
 ## What is localhost.run?
