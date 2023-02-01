@@ -25,7 +25,7 @@ class LocalhostRunExecutorTest {
         assertThat(domain)
                 .isNotNull()
                 .contains("https://")
-                .contains(".link");
+                .contains(".lhr.life");
     }
 
 }

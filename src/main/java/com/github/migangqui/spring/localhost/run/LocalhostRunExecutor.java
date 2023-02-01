@@ -35,7 +35,7 @@ public class LocalhostRunExecutor {
         String line;
         
         while ((line = stdInput.readLine()) != null) {
-            if (line.contains("https://") && line.contains("lhrtunnel.link")) {
+            if (line.contains("tunneled with tls termination")) {
                 domain.set(line.split(",")[1].trim());
                 break;
             }
