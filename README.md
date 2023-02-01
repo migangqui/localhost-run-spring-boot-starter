@@ -44,4 +44,4 @@ localhost-run:
 ### References
 
 * Based in similar ngrok starter: https://github.com/kilmajster/ngrok-spring-boot-starter
-* http://serveo.net/#manual
+* https://localhost.run/
