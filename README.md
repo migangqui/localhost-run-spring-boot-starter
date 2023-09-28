@@ -11,24 +11,27 @@ localhost.run is an SSH server just for remote port forwarding. When a user conn
 
 ## How works this starter?
 
-When you add this dependency to your pom.xml and configure it, you'll automatically get a public url to your local server.
+When you add this dependency to your pom.xml and configure it, you'll automatically get a public url to your local server in application logs:
+ ```
+Remote access to application with url https://abcd1234.lhr.life
+```
 
  ## Dependency
  
-Actual version is 2.1
+Actual version is 3.0
  
  * Maven:
  ```xml
 <dependency>
     <groupId>com.github.migangqui</groupId>
     <artifactId>localhost-run-spring-boot-starter</artifactId>
-    <version>2.1</version>
+    <version>3.0</version>
 </dependency>
 ```
 
 * Gradle:
  ```groovy
-implementation 'com.github.migangqui:localhost-run-spring-boot-starter:2.1'
+implementation 'com.github.migangqui:localhost-run-spring-boot-starter:3.0'
 ```
 
 https://mvnrepository.com/artifact/com.github.migangqui/localhost-run-spring-boot-starter
@@ -39,6 +42,13 @@ You must enable localhost.com runner adding the following property:
 ```yaml
 localhost-run:
     enabled: true
+```
+
+By default, the subdomain to generate URL is *lhr.life*.
+If **localhost.run** changes its subdomain, we can set by property:
+```yaml
+localhost-run:
+    subdomain: lhr.life
 ```
 
 ### References
