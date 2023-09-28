@@ -13,7 +13,7 @@
 
     <groupId>com.github.migangqui</groupId>
     <artifactId>localhost-run-spring-boot-starter</artifactId>
-    <version>3.0-RC</version>
+    <version>3.0</version>
 
     <name>localhost-run-spring-boot-starter</name>
     <description>localhost.run Spring Boot Starter</description>
